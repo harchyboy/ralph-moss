@@ -1,0 +1,20 @@
+{
+  "project": "UNION Spaces Core",
+  "branchName": "ralph-moss/test-feature",
+  "description": "Sample test feature to verify Ralph setup",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Create a simple test file",
+      "description": "As a developer, I want to verify Ralph is working by creating a simple test file.",
+      "acceptanceCriteria": [
+        "Create test-ralph.md in the root directory",
+        "File contains the text 'Ralph is working!'",
+        "Typecheck passes"
+      ],
+      "priority": 1,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}

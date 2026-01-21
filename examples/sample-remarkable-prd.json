@@ -1,0 +1,206 @@
+{
+  "project": "UNION Spaces Core",
+  "branchName": "ralph-moss/contact-type-filtering",
+  "description": "Add contact type filtering to the Contacts List page. Property managers currently scroll through 200+ contacts to find brokers. This filter will reduce that to instant lookup, saving 5+ minutes per search and reducing frustration during time-sensitive deal negotiations.",
+
+  "context": {
+    "businessGoal": "Enable property managers to quickly find contacts by role (Broker, Tenant, Landlord, etc.) during deal negotiations when time is critical",
+    "technicalContext": "Contacts List page exists at src/pages/Contacts/List.tsx. Uses React Query via useContacts hook. URL params already used for search. FilterDropdown component exists in UI library. API supports contact_type param but UI doesn't expose it.",
+    "relatedArchives": [
+      "archive/2026-01-14-property-filters/ - similar filter implementation",
+      "archive/2026-01-15-fix-landlord-contact-search/ - contact_type column discovery"
+    ],
+    "keyFiles": [
+      "src/pages/Contacts/List.tsx - main page component to modify",
+      "src/api/contacts.ts - useContacts hook (already supports contact_type)",
+      "src/components/ui/FilterDropdown.tsx - reusable dropdown component",
+      "src/types/contact.ts - Contact type definition"
+    ]
+  },
+
+  "antiPatterns": [
+    "Do NOT use 'type' column - the correct column is 'contact_type'",
+    "Do NOT use 'company_id' - the correct FK is 'account_id'",
+    "Do NOT join to 'companies' table - use 'accounts' table",
+    "Do NOT create a custom dropdown - use existing FilterDropdown from src/components/ui/",
+    "Do NOT add console.log statements - use logger from src/lib/logger.ts if needed"
+  ],
+
+  "referencePatterns": [
+    {
+      "description": "Filter dropdown implementation pattern",
+      "file": "src/pages/Properties/List.tsx",
+      "lines": "45-67"
+    },
+    {
+      "description": "URL param state management",
+      "file": "src/pages/Properties/List.tsx",
+      "lines": "23-35"
+    },
+    {
+      "description": "Contact type enum values",
+      "file": "api/contacts.ts",
+      "lines": "15-20"
+    }
+  ],
+
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Verify contact_type API parameter works correctly",
+      "description": "As a developer, I want to confirm the API supports contact_type filtering so that I can safely build the UI on a working foundation",
+      "technicalDetails": {
+        "filesAffected": [
+          "api/contacts.ts"
+        ],
+        "approach": "1. Read api/contacts.ts to understand current implementation. 2. Verify contact_type param is handled in query. 3. Test API endpoint manually or via existing test. 4. Document findings in notes.",
+        "edgeCases": [
+          "Empty/null contact_type should return all contacts",
+          "Invalid contact_type value should return empty array (not error)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "VERIFY: api/contacts.ts handles contact_type query parameter",
+        "VERIFY: Query filters on contact_type column (not 'type')",
+        "TYPECHECK: npm run typecheck exits 0",
+        "DOCUMENT: Notes field updated with API behavior findings"
+      ],
+      "antiPatterns": [
+        "Do NOT modify the API unless it's broken - this is verification only"
+      ],
+      "priority": 1,
+      "dependsOn": [],
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-002",
+      "title": "Add FilterDropdown import and state to Contacts List",
+      "description": "As a developer, I want to set up the filter state management so that the dropdown can control the contact list filtering",
+      "technicalDetails": {
+        "filesAffected": [
+          "src/pages/Contacts/List.tsx"
+        ],
+        "approach": "1. Import FilterDropdown from @/components/ui/FilterDropdown. 2. Add contact_type to destructured searchParams. 3. Create setContactType handler that updates URL params. 4. Define CONTACT_TYPE_OPTIONS constant with all 6 types.",
+        "edgeCases": [
+          "Page load with existing ?contact_type=Broker should initialize filter",
+          "Clearing filter should remove param from URL (not set to empty string)"
+        ]
+      },
+      "acceptanceCriteria": [
+        "VERIFY: FilterDropdown is imported at top of file",
+        "VERIFY: CONTACT_TYPE_OPTIONS array has 6 values: Broker, Tenant, Landlord, Disposal Agent, Supplier, Internal",
+        "VERIFY: contact_type extracted from useSearchParams",
+        "TYPECHECK: npm run typecheck exits 0",
+        "LINT: npm run lint exits 0"
+      ],
+      "antiPatterns": [
+        "Do NOT use useState for filter state - use URL params for persistence",
+        "Do NOT hardcode options inline - create a constant"
+      ],
+      "priority": 2,
+      "dependsOn": ["US-001"],
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Render FilterDropdown in Contacts List filter bar",
+      "description": "As a property manager, I want to see a contact type dropdown so that I can filter contacts by their role",
+      "technicalDetails": {
+        "filesAffected": [
+          "src/pages/Contacts/List.tsx"
+        ],
+        "approach": "1. Locate existing filter section (search input area). 2. Add FilterDropdown next to search input. 3. Connect value to contact_type searchParam. 4. Connect onChange to setContactType handler. 5. Style to match existing filters.",
+        "edgeCases": [
+          "Mobile view should stack filters vertically",
+          "Dropdown should show 'All Types' when no filter selected"
+        ]
+      },
+      "acceptanceCriteria": [
+        "VERIFY: FilterDropdown renders in filter bar area",
+        "VERIFY: Dropdown shows 'All Types' as placeholder/default",
+        "VERIFY: All 6 contact types appear as options",
+        "BROWSER: Use dev-browser skill to verify dropdown is visible and clickable",
+        "TYPECHECK: npm run typecheck exits 0"
+      ],
+      "antiPatterns": [
+        "Do NOT add dropdown outside the existing filter section",
+        "Do NOT use custom styling - match existing filter appearance"
+      ],
+      "priority": 3,
+      "dependsOn": ["US-002"],
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Connect FilterDropdown to useContacts query",
+      "description": "As a property manager, I want selecting a contact type to filter the list so that I only see relevant contacts",
+      "technicalDetails": {
+        "filesAffected": [
+          "src/pages/Contacts/List.tsx"
+        ],
+        "approach": "1. Pass contact_type param to useContacts hook call. 2. Verify React Query refetches when param changes. 3. Verify filtered results display correctly.",
+        "edgeCases": [
+          "Changing filter while loading should cancel previous request",
+          "Empty results should show 'No contacts found' message"
+        ]
+      },
+      "acceptanceCriteria": [
+        "VERIFY: Selecting 'Broker' filters list to only Broker contacts",
+        "VERIFY: Selecting 'All Types' shows all contacts",
+        "VERIFY: URL updates to include ?contact_type=Broker when selected",
+        "VERIFY: Refreshing page with URL param maintains filter",
+        "BROWSER: Use dev-browser to select filter and verify list updates",
+        "TYPECHECK: npm run typecheck exits 0"
+      ],
+      "antiPatterns": [
+        "Do NOT filter client-side - let the API handle filtering",
+        "Do NOT add artificial delays or debouncing for this dropdown"
+      ],
+      "priority": 4,
+      "dependsOn": ["US-003"],
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Add unit test for contact type filter behavior",
+      "description": "As a developer, I want test coverage for the filter so that future changes don't break this feature",
+      "technicalDetails": {
+        "filesAffected": [
+          "src/pages/Contacts/__tests__/List.test.tsx"
+        ],
+        "approach": "1. Create test file if doesn't exist. 2. Add test for filter dropdown rendering. 3. Add test for filter selection updating URL. 4. Add test for filtered results display.",
+        "edgeCases": [
+          "Test should mock useContacts to avoid network calls",
+          "Test should verify URL param persistence"
+        ]
+      },
+      "acceptanceCriteria": [
+        "VERIFY: Test file exists at correct path",
+        "VERIFY: At least 2 test cases for filter functionality",
+        "VERIFY: npm run test -- --filter=Contacts passes",
+        "TYPECHECK: npm run typecheck exits 0"
+      ],
+      "antiPatterns": [
+        "Do NOT write overly complex tests - focus on user behavior",
+        "Do NOT test implementation details - test outcomes"
+      ],
+      "priority": 5,
+      "dependsOn": ["US-004"],
+      "passes": false,
+      "notes": ""
+    }
+  ],
+
+  "successVision": "A property manager opens the Contacts page, clicks the 'Contact Type' dropdown, selects 'Broker', and instantly sees only broker contacts. The URL updates to /contacts?contact_type=Broker. They can bookmark this URL to return directly to their broker list. Clearing the filter shows all contacts again. The filter persists across page refreshes and browser sessions.",
+
+  "testingStrategy": {
+    "unit": "Test FilterDropdown option generation and onChange handler",
+    "integration": "Test useContacts hook with contact_type parameter",
+    "e2e": "Full flow: load page, select filter, verify filtered results, refresh page, verify persistence",
+    "manual": "Verify dropdown appearance matches existing UI, test on mobile viewport"
+  }
+}

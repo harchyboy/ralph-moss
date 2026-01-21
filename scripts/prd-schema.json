@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/harchyboy/ralph-moss/prd-schema.json",
+  "title": "Ralph Moss PRD Schema",
+  "description": "Schema for remarkable Ralph Moss Product Requirements Documents",
+  "type": "object",
+  "required": ["project", "branchName", "description", "userStories"],
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Project name",
+      "default": "MyProject"
+    },
+    "branchName": {
+      "type": "string",
+      "description": "Git branch name in format: ralph-moss/[feature-name-kebab-case]",
+      "pattern": "^ralph-moss/[a-z0-9-]+$"
+    },
+    "description": {
+      "type": "string",
+      "description": "2-3 sentences explaining what we're building and WHY it matters",
+      "minLength": 50
+    },
+    "context": {
+      "type": "object",
+      "description": "Rich context for each fresh iteration",
+      "properties": {
+        "businessGoal": {
+          "type": "string",
+          "description": "What user/business problem does this solve?"
+        },
+        "technicalContext": {
+          "type": "string",
+          "description": "Current state of the system relevant to this feature"
+        },
+        "relatedArchives": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Paths to similar archived PRDs for reference"
+        },
+        "keyFiles": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Primary files that will be touched with brief descriptions"
+        }
+      }
+    },
+    "antiPatterns": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Things NOT to do - prevents repeated mistakes"
+    },
+    "visualSpecs": {
+      "type": "object",
+      "description": "Visual design specifications - mockups, HTML prototypes, style guides",
+      "properties": {
+        "mockups": {
+          "type": "array",
+          "description": "Image mockups showing desired UI",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "description": "Descriptive name for this mockup" },
+              "path": { "type": "string", "description": "Relative path to image file (.png, .jpg, .webp)" },
+              "description": { "type": "string", "description": "What this mockup shows" }
+            },
+            "required": ["name", "path"]
+          }
+        },
+        "htmlPrototypes": {
+          "type": "array",
+          "description": "HTML/CSS prototypes to extract styles from",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": { "type": "string", "description": "Descriptive name for this prototype" },
+              "path": { "type": "string", "description": "Relative path to HTML file" },
+              "description": { "type": "string", "description": "What to extract from this prototype" }
+            },
+            "required": ["name", "path"]
+          }
+        },
+        "styleGuide": {
+          "type": "object",
+          "description": "Design tokens and style constants",
+          "properties": {
+            "colors": {
+              "type": "object",
+              "description": "Color palette mapping (e.g., primary: '#3B82F6')",
+              "additionalProperties": { "type": "string" }
+            },
+            "spacing": {
+              "type": "object",
+              "description": "Spacing scale (e.g., sm: '0.5rem')",
+              "additionalProperties": { "type": "string" }
+            },
+            "typography": {
+              "type": "object",
+              "description": "Font styles (e.g., heading: 'font-bold text-xl')",
+              "additionalProperties": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "referencePatterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "file": { "type": "string" },
+          "lines": { "type": "string" }
+        },
+        "required": ["description", "file"]
+      },
+      "description": "Pointers to existing code patterns to follow"
+    },
+    "userStories": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "description", "acceptanceCriteria", "priority", "passes"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique story identifier",
+            "pattern": "^US-[0-9]{3}$"
+          },
+          "title": {
+            "type": "string",
+            "description": "[Verb] [Specific Thing] [Location]",
+            "minLength": 10
+          },
+          "description": {
+            "type": "string",
+            "description": "As a [user], I want [capability] so that [benefit]",
+            "minLength": 20
+          },
+          "technicalDetails": {
+            "type": "object",
+            "properties": {
+              "filesAffected": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Exact file paths that will be modified"
+              },
+              "approach": {
+                "type": "string",
+                "description": "Step-by-step implementation approach"
+              },
+              "edgeCases": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Edge cases and how to handle them"
+              }
+            }
+          },
+          "acceptanceCriteria": {
+            "type": "array",
+            "minItems": 2,
+            "items": { "type": "string" },
+            "description": "Binary (yes/no) verifiable criteria. Must include TYPECHECK criterion."
+          },
+          "antiPatterns": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Story-specific things to avoid"
+          },
+          "visualRef": {
+            "type": "string",
+            "description": "Path to mockup/prototype this story should match (from visualSpecs)"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Execution order - lower numbers run first"
+          },
+          "dependsOn": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "IDs of stories that must complete before this one"
+          },
+          "passes": {
+            "type": "boolean",
+            "description": "Set to true when story is complete and verified",
+            "default": false
+          },
+          "notes": {
+            "type": "string",
+            "description": "Runtime notes added during execution",
+            "default": ""
+          }
+        }
+      }
+    },
+    "successVision": {
+      "type": "string",
+      "description": "What does the completed feature look like? How will users interact with it?"
+    },
+    "testingStrategy": {
+      "type": "object",
+      "properties": {
+        "unit": { "type": "string" },
+        "integration": { "type": "string" },
+        "e2e": { "type": "string" },
+        "manual": { "type": "string" }
+      }
+    }
+  }
+}

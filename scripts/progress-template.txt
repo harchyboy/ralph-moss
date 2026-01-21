@@ -1,0 +1,76 @@
+# Progress Template for Ralph Moss PRDs
+# =====================================
+# Copy this template to your PRD folder as progress.txt
+# Each iteration appends to this file - NEVER delete content
+
+# ============================================================
+# CODEBASE PATTERNS (Add patterns discovered during execution)
+# ============================================================
+# These patterns carry forward to ALL future iterations
+
+## Database Schema Patterns
+- contact_type column (NOT 'type') - stores contact role
+- account_id (NOT 'company_id') - foreign key to accounts table
+- accounts table (NOT 'companies') - stores company data
+
+## API Patterns
+- Use fetchWithAuth from @/lib/api for authenticated requests
+- API endpoints follow pattern: api/[resource].ts
+- Query params passed as object to useQuery hooks
+
+## Component Patterns
+- FilterDropdown expects options: Array<{value: string, label: string}>
+- InlineEditField handles blur/enter save automatically
+- Use Badge component for status indicators
+
+## Testing Patterns
+- Mock useQuery hooks with vi.mock('@tanstack/react-query')
+- Use renderWithProviders for components needing context
+- E2E tests use data-testid attributes for selectors
+
+# ============================================================
+# KEY LEARNINGS (Add critical discoveries here)
+# ============================================================
+# These prevent repeated mistakes
+
+## What Works
+- [Add successful approaches here]
+
+## What Doesn't Work
+- [Add failed approaches and why they failed]
+
+## Gotchas Discovered
+- [Add unexpected behaviors or requirements]
+
+# ============================================================
+# ITERATION LOG (Append each iteration below)
+# ============================================================
+
+---
+## Iteration 1 - [Story ID]: [Story Title]
+**Date**: [YYYY-MM-DD]
+
+### What Was Done
+- [Bullet point summary of changes]
+
+### Files Modified
+- path/to/file.ts - [what changed]
+
+### Verification Results
+- Typecheck: PASS/FAIL
+- Lint: PASS/FAIL
+- Tests: PASS/FAIL
+- Browser: [If UI] Verified [element] at [location]
+
+### Patterns Discovered
+- [Any new patterns to add to Codebase Patterns section]
+
+### Issues Encountered
+- [Problem]: [How it was solved]
+
+### Notes for Next Iteration
+- [Anything the next iteration should know]
+
+---
+## Iteration 2 - [Story ID]: [Story Title]
+[Continue pattern...]
