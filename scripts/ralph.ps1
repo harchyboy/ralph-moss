@@ -49,6 +49,81 @@ $PrdFile = Join-Path $WorkDir "prd.json"
 $ProgressFile = Join-Path $WorkDir "progress.txt"
 $PromptFile = Join-Path $ScriptDir "prompt-claude.md"
 
+# Get repo root directory
+$RepoRoot = git rev-parse --show-toplevel 2>$null
+if (-not $RepoRoot) {
+    $RepoRoot = (Get-Item $ScriptDir).Parent.Parent.FullName
+}
+
+# Function to sync PRD learning files back to main
+# This ensures prd.json (with passes/notes) and progress.txt persist
+function Sync-PrdToMain {
+    param([string]$WorkDir, [string]$RepoRoot)
+
+    try {
+        # Get relative path from repo root
+        $RelativePath = $WorkDir.Replace($RepoRoot, "").TrimStart("\", "/")
+
+        # Get current branch
+        $CurrentBranch = git branch --show-current 2>$null
+        if (-not $CurrentBranch -or $CurrentBranch -eq "main") {
+            Write-Host "  [Sync] Already on main or no branch - skipping sync" -ForegroundColor Gray
+            return
+        }
+
+        Write-Host ""
+        Write-Host "  [Sync] Preserving PRD learning files to main..." -ForegroundColor Cyan
+
+        # Commit any uncommitted PRD changes on current branch first
+        $prdStatus = git status --porcelain "$RelativePath/prd.json" "$RelativePath/progress.txt" 2>$null
+        if ($prdStatus) {
+            git add "$RelativePath/prd.json" "$RelativePath/progress.txt" 2>$null
+            git commit -m "chore: Update PRD progress for $CurrentBranch" 2>$null
+        }
+
+        # Stash any other changes
+        $hasStash = $false
+        $stashOutput = git stash push -m "ralph-moss-sync-temp" 2>&1
+        if ($stashOutput -notmatch "No local changes") {
+            $hasStash = $true
+        }
+
+        # Checkout main and pull latest
+        git checkout main 2>$null
+        git pull origin main 2>$null
+
+        # Copy PRD files from feature branch
+        git checkout $CurrentBranch -- "$RelativePath/prd.json" 2>$null
+        if (Test-Path "$WorkDir/progress.txt") {
+            git checkout $CurrentBranch -- "$RelativePath/progress.txt" 2>$null
+        }
+
+        # Commit and push to main
+        $hasChanges = git status --porcelain "$RelativePath" 2>$null
+        if ($hasChanges) {
+            git add "$RelativePath/prd.json" "$RelativePath/progress.txt" 2>$null
+            git commit -m "chore: Sync completed PRD from $CurrentBranch" 2>$null
+            git push origin main 2>$null
+            Write-Host "  [Sync] PRD files synced to main" -ForegroundColor Green
+        } else {
+            Write-Host "  [Sync] PRD files already up to date on main" -ForegroundColor Gray
+        }
+
+        # Return to feature branch
+        git checkout $CurrentBranch 2>$null
+
+        # Restore stash if we had one
+        if ($hasStash) {
+            git stash pop 2>$null
+        }
+
+    } catch {
+        Write-Warning "  [Sync] Could not sync to main: $($_.Exception.Message)"
+        # Try to get back to original branch
+        git checkout $CurrentBranch 2>$null
+    }
+}
+
 # Initialize progress file if missing
 if (-not (Test-Path $ProgressFile)) {
     try {
@@ -113,6 +188,7 @@ for ($i = 1; $i -le $MaxIterations; $i++) {
         Write-Host "===========================================================" -ForegroundColor Green
         Write-Host "  [OK] All tasks already complete!" -ForegroundColor Green
         Write-Host "===========================================================" -ForegroundColor Green
+        Sync-PrdToMain -WorkDir $WorkDir -RepoRoot $RepoRoot
         exit 0
     }
 
@@ -207,6 +283,7 @@ $PromptContent
         Write-Host "===========================================================" -ForegroundColor Green
         Write-Host "  [OK] All tasks complete after $i iterations!" -ForegroundColor Green
         Write-Host "===========================================================" -ForegroundColor Green
+        Sync-PrdToMain -WorkDir $WorkDir -RepoRoot $RepoRoot
         exit 0
     }
 
@@ -233,6 +310,7 @@ $PromptContent
             Write-Host "===========================================================" -ForegroundColor Green
             Write-Host "  [OK] All tasks complete after $i iterations!" -ForegroundColor Green
             Write-Host "===========================================================" -ForegroundColor Green
+            Sync-PrdToMain -WorkDir $WorkDir -RepoRoot $RepoRoot
             exit 0
         }
 
@@ -243,6 +321,7 @@ $PromptContent
             Write-Host "  [OK] Completed $StoriesCompletedThisRun stories (max reached)" -ForegroundColor Green
             Write-Host "  Remaining: $remainingAfter stories" -ForegroundColor Yellow
             Write-Host "===========================================================" -ForegroundColor Green
+            Sync-PrdToMain -WorkDir $WorkDir -RepoRoot $RepoRoot
             exit 0
         }
     } catch {
