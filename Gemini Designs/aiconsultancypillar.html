@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Consultancy for UK SMEs | Hartz AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hartz: {
+                            white: '#ffffff',
+                            lightGray: '#fcfcfc',
+                            black: '#0a0a0a',
+                            blue: '#4A90E2',
+                            muted: '#666666',
+                            border: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glow-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.04) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 40%); pointer-events: none; z-index: -1; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .bento-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .bento-card:hover { border-color: #4A90E2; transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
+        .tracking-tight-custom { letter-spacing: -0.05em; }
+
+        /* Loader Styles */
+        .loader {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FFF;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .markdown-content h3 { font-weight: 800; margin-top: 1.5rem; margin-bottom: 0.5rem; font-size: 1.1rem; color: #0a0a0a; }
+        .markdown-content p { margin-bottom: 1rem; color: #666; font-size: 0.95rem; line-height: 1.6; }
+        .markdown-content ul { list-style-type: disc; margin-left: 1.5rem; margin-bottom: 1rem; color: #666; }
+        .markdown-content li { margin-bottom: 0.5rem; }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="glow-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-[100] h-16 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-hartz-black tracking-[0.2em] font-bold text-base">HARTZ</span>
+            <div class="w-7 h-7 rounded-full border border-hartz-blue flex items-center justify-center text-[9px] text-hartz-blue font-bold">AI</div>
+        </div>
+        <button class="px-6 py-2 rounded-full bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold hover:bg-hartz-blue transition-all shadow-lg">Book Discovery Call</button>
+    </nav>
+
+    <!-- Header & Breadcrumbs -->
+    <header class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-hartz-muted mb-12">
+            <a href="index.html" class="hover:text-hartz-blue">Home</a>
+            <span>/</span>
+            <span class="text-hartz-black">Consultancy</span>
+        </nav>
+        <div class="max-w-5xl">
+            <p class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold">Strategic Advisory • SME Focus</p>
+            <h1 class="text-5xl md:text-[6.5rem] font-extrabold tracking-tight-custom leading-[0.9] text-hartz-black mb-10">
+                Grounded <br><span class="text-hartz-blue italic">consultancy.</span>
+            </h1>
+            <p class="text-hartz-muted text-lg md:text-xl font-medium leading-relaxed max-w-3xl">
+                We turn AI noise into a clear direction for your business. From readiness audits to long-term executive leadership, we help you make informed, safe, and profitable decisions.
+            </p>
+        </div>
+    </header>
+
+    <!-- Consultancy Menu -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Fractional CAIO -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between h-[450px]">
+                <div>
+                    <h3 class="text-2xl font-extrabold mb-4 text-hartz-black">Fractional CAIO</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">Executive-level AI leadership without the full-time cost. Strategy, governance, and technology selection led by experts.</p>
+                </div>
+                <a href="fractional-caio.html" class="inline-block w-full text-center py-4 border border-black/10 text-[10px] uppercase tracking-widest font-bold rounded-full hover:border-hartz-blue hover:text-hartz-blue transition-all">Explore Service</a>
+            </div>
+
+            <!-- Ongoing Advisory -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between h-[450px]">
+                <div>
+                    <h3 class="text-2xl font-extrabold mb-4 text-hartz-black">Ongoing Advisory</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">Regular check-ins to keep your AI adoption aligned with your goals as tools and market needs evolve rapidly.</p>
+                </div>
+                <a href="ongoing-advisory.html" class="inline-block w-full text-center py-4 border border-black/10 text-[10px] uppercase tracking-widest font-bold rounded-full hover:border-hartz-blue hover:text-hartz-blue transition-all">Explore Service</a>
+            </div>
+
+            <!-- Governance -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between h-[450px]">
+                <div>
+                    <h3 class="text-2xl font-extrabold mb-4 text-hartz-black">Governance & Risk</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">Ensuring your use of AI is ethical, legal, and safe. We build the policies and guardrails your team needs to thrive.</p>
+                </div>
+                <a href="governance-responsible-ai.html" class="inline-block w-full text-center py-4 border border-black/10 text-[10px] uppercase tracking-widest font-bold rounded-full hover:border-hartz-blue hover:text-hartz-blue transition-all">Explore Service</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini AI Integration: Strategy Tool ✨ -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+            <div class="lg:col-span-5">
+                <h2 class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold">Instant Insights ✨</h2>
+                <h3 class="text-4xl font-extrabold tracking-tight text-hartz-black mb-6 leading-tight">Generate a high-level AI Strategy Draft.</h3>
+                <p class="text-hartz-muted text-sm leading-relaxed mb-8">Describe your business, current workflows, and what you hope to achieve with AI. Our lab assistant will generate a draft strategy to start our conversation.</p>
+                
+                <div class="space-y-4">
+                    <textarea id="businessContext" rows="4" class="w-full p-6 rounded-3xl border border-black/10 text-sm focus:outline-none focus:border-hartz-blue transition-colors" placeholder="e.g. We are a boutique law firm in London looking to automate legal research and draft document reviews..."></textarea>
+                    
+                    <button onclick="generateStrategy()" id="generateBtn" class="w-full py-5 bg-hartz-black text-white text-[11px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all flex items-center justify-center gap-3">
+                        Generate Strategy Draft ✨
+                    </button>
+                    <p id="errorMessage" class="text-red-500 text-[10px] mt-2 hidden"></p>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7">
+                <div id="strategyOutput" class="bento-card p-10 rounded-[40px] bg-hartz-lightGray min-h-[400px] flex flex-col items-center justify-center text-center">
+                    <div id="placeholderUI">
+                        <div class="w-16 h-16 rounded-full border border-black/5 flex items-center justify-center mb-6 mx-auto">
+                            <svg class="w-6 h-6 text-black/20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" /></svg>
+                        </div>
+                        <p class="text-xs text-hartz-muted font-bold uppercase tracking-[0.2em]">Strategy Preview will appear here</p>
+                    </div>
+                    
+                    <div id="loaderUI" class="hidden">
+                        <span class="loader mb-4 border-hartz-blue"></span>
+                        <p class="text-[10px] text-hartz-muted font-bold uppercase tracking-widest">Analysing context and generating draft...</p>
+                    </div>
+
+                    <div id="resultContent" class="hidden text-left w-full markdown-content">
+                        <!-- Strategy will be injected here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Phased Process -->
+    <section class="py-32 bg-hartz-black text-white">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <h2 class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold text-center">Our Methodology</h2>
+            <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight-custom text-center mb-24">A clear path to AI capability.</h3>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+                <div class="flex gap-8">
+                    <span class="text-hartz-blue font-extrabold text-4xl opacity-50">01</span>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">AI Readiness Audit</h4>
+                        <p class="text-sm opacity-60 leading-relaxed">Understanding your current picture. Mapping workflows, tools, and data readiness to find safe, high-value wins.</p>
+                    </div>
+                </div>
+                <div class="flex gap-8">
+                    <span class="text-hartz-blue font-extrabold text-4xl opacity-50">02</span>
+                    <div>
+                        <h4 class="text-xl font-bold mb-4">Strategic AI Roadmap</h4>
+                        <p class="text-sm opacity-60 leading-relaxed">A realistic, time-bound plan that fits your budget. Sequence training, tooling, and workflow changes properly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 md:px-12 border-t border-black/5">
+        <div class="max-w-7xl mx-auto flex justify-between items-center text-[10px] text-hartz-muted uppercase font-bold tracking-widest">
+            <span>© 2026 Hartz AI • London, UK</span>
+            <div class="flex gap-8">
+                <a href="academy.html" class="hover:text-hartz-black">Academy</a>
+                <a href="ai-consultancy.html" class="hover:text-hartz-black text-hartz-black font-bold">Consultancy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const apiKey = ""; // Provisioned at runtime
+
+        async function fetchGemini(prompt, retries = 5, delay = 1000) {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: {
+                    parts: [{ text: "Act as a Senior AI Consultant from Hartz AI Research Lab. Provide a brief, professional, and practical AI strategy draft for a UK SME based on the context provided. Focus on 'Quick Wins' and 'Strategic Alignment'. Use clear, jargon-free language. Format with bold subheadings and bullet points." }]
+                }
+            };
+
+            for (let i = 0; i < retries; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) throw new Error('API Error');
+                    
+                    const result = await response.json();
+                    return result.candidates?.[0]?.content?.parts?.[0]?.text;
+                } catch (error) {
+                    if (i === retries - 1) throw error;
+                    await new Promise(resolve => setTimeout(resolve, delay));
+                    delay *= 2;
+                }
+            }
+        }
+
+        async function generateStrategy() {
+            const context = document.getElementById('businessContext').value;
+            const btn = document.getElementById('generateBtn');
+            const errorMsg = document.getElementById('errorMessage');
+            const placeholder = document.getElementById('placeholderUI');
+            const loader = document.getElementById('loaderUI');
+            const resultDiv = document.getElementById('resultContent');
+
+            if (!context.trim()) {
+                errorMsg.innerText = "Please provide some business context first.";
+                errorMsg.classList.remove('hidden');
+                return;
+            }
+
+            errorMsg.classList.add('hidden');
+            btn.disabled = true;
+            placeholder.classList.add('hidden');
+            resultDiv.classList.add('hidden');
+            loader.classList.remove('hidden');
+
+            try {
+                const prompt = `Context: ${context}`;
+                const text = await fetchGemini(prompt);
+                
+                // Simple markdown-ish conversion for the preview
+                const formatted = text
+                    .replace(/## (.*)/g, '<h3>$1</h3>')
+                    .replace(/\* (.*)/g, '<li>$1</li>')
+                    .replace(/\n\n/g, '</p><p>')
+                    .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+                resultDiv.innerHTML = `<div class="mb-6"><span class="text-hartz-blue text-[9px] font-bold uppercase tracking-widest">Draft Strategy Generated</span></div><p>${formatted}</p>`;
+                
+                loader.classList.add('hidden');
+                resultDiv.classList.remove('hidden');
+            } catch (error) {
+                console.error(error);
+                errorMsg.innerText = "The lab assistant is currently busy. Please try again in a moment.";
+                errorMsg.classList.remove('hidden');
+                loader.classList.add('hidden');
+                placeholder.classList.remove('hidden');
+            } finally {
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

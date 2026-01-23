@@ -1,0 +1,145 @@
+Hartz AI: Brand Identity & Style Guidelines
+
+Version 1.0 | The Digital Lab Aesthetic
+
+1. Brand Essence
+
+Hartz AI is a bridge between the complex frontier of Artificial Intelligence and the practical needs of UK SMEs. Our brand is Digital-first, Science-inspired, and Human-centered.
+
+Core Promise: Clarity over Hype.
+
+Mission: Empowering organizations through confidence, clarity, and capability.
+
+Aesthetic Goal: To look like a high-end research institution (e.g., DeepMind) while remaining accessible and grounded.
+
+2. Voice & Tone
+
+We speak as a Trusted Writing Coach or Senior Editor. We are authoritative but never arrogant; technical but never jargon-heavy.
+
+Do: Use plain English, be direct, use active verbs, and focus on practical outcomes.
+
+Don't: Use "AI buzzwords" (synergy, disrupt, paradigm shift), be overly abstract, or use fear-based marketing.
+
+3. Visual Identity
+
+3.1 Logo Usage
+
+The Hartz AI logo consists of the wordmark HARTZ in Inter Bold followed by a blue-bordered circle containing the letters AI.
+
+Clear Space: Maintain a "safe zone" around the logo equal to the width of the 'H' in Hartz.
+
+Minimum Size: 24px height for digital displays.
+
+Backgrounds: Primarily used on Pure White (#FFFFFF). On dark backgrounds, use a white wordmark with the blue circle preserved.
+
+3.2 Color Palette
+
+The palette is intentionally limited to create a "Technical Blueprint" feel.
+
+Color
+
+Hex
+
+Usage
+
+Hartz White
+
+#FFFFFF
+
+Primary background, expansive whitespace.
+
+Hartz Black
+
+#0A0A0A
+
+Primary text, navigation, and high-impact UI.
+
+Hartz Blue
+
+#4A90E2
+
+The "Bioluminescent" accent, CTAs, and glows.
+
+Hartz Muted
+
+#666666
+
+Secondary text and meta-data labels.
+
+Hartz Border
+
+rgba(0,0,0,0.08)
+
+Technical hairlines and grid dividers.
+
+4. Typography
+
+The brand exclusively uses Inter to maintain a clean, high-tech engineering feel.
+
+Primary Headline: Inter ExtraBold or Black.
+
+Tracking: -0.05em (Tightly packed for a "blocky" impact).
+
+Leading: 0.9 to 1.1.
+
+Sub-headlines: Inter Bold.
+
+Tracking: -0.02em.
+
+Body Text: Inter Medium or Regular.
+
+Leading: 1.6 (Generous line-height for readability).
+
+Meta/Labels: Inter Bold, All-Caps.
+
+Tracking: 0.3em (Spaced out for a scientific label feel).
+
+5. Layout & Components
+
+5.1 The Bento Grid
+
+Content should be grouped in modular "Bento" cards to signify organization and clarity.
+
+Radius: 32px to 40px for a soft, modern feel.
+
+Borders: 1px solid Hartz Border.
+
+Shadows: Very subtle or non-existent. Prefer border-color changes on hover (Hartz Blue).
+
+5.2 Technical Hairlines
+
+Use thin lines (0.5px - 1px) to divide sections. This mimics architectural blueprints and scientific papers.
+
+5.3 Bioluminescent Atmosphere
+
+The "Glow" is our signature visual. Use large, low-opacity radial gradients of Hartz Blue (approx. 2% to 5% opacity). It should feel like a faint light reflecting off a lens, not a solid color.
+
+6. Imagery & Graphics
+
+6.1 Abstract Visuals
+
+Avoid generic AI stock photography. Instead, use:
+
+Generative Geometry: Vector line art of nodes, paths, and grids.
+
+Atmospheric Orbs: Soft, blurred blue gradients.
+
+Grain: A 3% opacity noise overlay on the entire site to add "cinematic" texture to the white background.
+
+6.2 Photography (E-E-A-T)
+
+When using real photography (Founders, Teams, Offices):
+
+Style: Clean, minimalist, natural lighting.
+
+Treatment: Use a slight grayscale filter or high-key lighting to integrate with the white aesthetic.
+
+7. Semantic SEO Principles
+
+Design decisions must reinforce the page's "Entity":
+
+Every image must have a descriptive alt tag (e.g., "Hartz AI Roadmap showing 4-phase SME training model").
+
+Use standard HTML hierarchy (<h1> through <h5>) for search engine categorization.
+
+Incorporate JSON-LD Schema for courses and services directly into the code.

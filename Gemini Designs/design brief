@@ -1,0 +1,57 @@
+Design Brief: Hartz AI "Digital Lab" Aesthetic
+
+1. Core Vision
+
+The brand aesthetic is "Digital-first, Science-inspired." It should feel like a high-end research institution (Google DeepMind/OpenAI) but tailored for the practical world of UK SMEs. The goal is to convey "Clarity over Hype" and "Capability over Confusion."
+
+2. Visual Identity & Atmosphere
+
+Background: 100% White (#FFFFFF). Use expansive whitespace to create a "paper-like" expansive feel.
+
+Atmosphere: Implement "Bioluminescent" accents. Use very subtle, large-scale radial gradients (Hartz Blue @ 2-5% opacity) that feel like light hitting a lens rather than a background color.
+
+Texture: Overlay a fine "noise" or "grain" texture (approx 3% opacity) to add a cinematic, physical quality to the digital canvas.
+
+Lines: Use "Technical Hairlines." Dividers and borders should be 0.5px - 1px, using either light gray (#000000 @ 8% opacity) or a subtle dash pattern to mimic blueprints or scientific charts.
+
+3. Typography (The "Inter" System)
+
+Primary Font: Inter (Sans-Serif).
+
+Headlines: Heavy weights (Bold/ExtraBold/Black).
+
+Tracking: Tight letter-spacing (-0.04em to -0.05em).
+
+Leading: Compact line-height (0.9 to 1.1) to create high-impact "blocks" of text.
+
+Body: Medium to Regular weights. Use generous line-height (1.6) to ensure readability and a "premium" feel.
+
+Meta Text: All-caps, tracked-out (+0.2em to +0.3em), bold, used for labels and industry tags.
+
+4. Layout & Components
+
+The Bento Grid: Use a modular grid system for services and research. Cards should have generous internal padding (min 40px) and soft, large corner radii (32px to 40px).
+
+Abstract Imagery: Avoid generic AI stock photos (brains, robots). Instead, use Abstract Generative Geometry:
+
+Vector-based line art (waves, nodes, grids).
+
+Subtle 3D glassmorphic shapes.
+
+Motion-blurred "orbs" of light.
+
+Navigation: A fixed "Glass" navbar with high blur (20px+) and low-opacity borders.
+
+5. Interaction & Motion
+
+Scroll-driven Parallax: Background "orbs" should move at a different speed than content to create depth.
+
+Micro-interactions: * Buttons should have subtle scale-up or color-fill transitions.
+
+Bento cards should lift slightly on hover with a soft shadow.
+
+Reveals: Content should fade and slide up gently (approx 20px) as it enters the viewport.
+
+6. Designer Challenge
+
+"How can we use the Hartz Blue Circle from the logo as a functional UI element? Explore its use as a progress indicator, a mouse-follower, or a recurring framing device for abstract visuals throughout the site."

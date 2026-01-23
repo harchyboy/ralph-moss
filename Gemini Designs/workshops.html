@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Workshops for UK SMEs | Hartz AI Academy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hartz: {
+                            white: '#ffffff',
+                            lightGray: '#fcfcfc',
+                            black: '#0a0a0a',
+                            blue: '#4A90E2',
+                            muted: '#666666',
+                            border: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glow-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.04) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 40%); pointer-events: none; z-index: -1; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .bento-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .bento-card:hover { border-color: #4A90E2; transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
+        .hero-orb { width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(74, 144, 226, 0.07) 0%, transparent 70%); filter: blur(100px); position: absolute; z-index: -1; animation: float 20s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40px, -50px) scale(1.05); } }
+        .tracking-tight-custom { letter-spacing: -0.05em; }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="glow-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-[100] h-16 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-hartz-black tracking-[0.2em] font-bold text-base">HARTZ</span>
+            <div class="w-7 h-7 rounded-full border border-hartz-blue flex items-center justify-center text-[9px] text-hartz-blue font-bold">AI</div>
+        </div>
+        <ul class="hidden lg:flex items-center gap-10 text-[10px] uppercase tracking-[0.15em] text-hartz-muted font-bold">
+            <li><a href="academy.html" class="hover:text-hartz-black transition-colors">Academy</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors text-hartz-black">Workshops</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">Consultancy</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">About</a></li>
+        </ul>
+        <button class="px-6 py-2 rounded-full bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold hover:bg-hartz-blue transition-all shadow-lg">Book Discovery Call</button>
+    </nav>
+
+    <!-- Header & Breadcrumbs -->
+    <header class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-hartz-muted mb-12">
+            <a href="index.html" class="hover:text-hartz-blue">Home</a>
+            <span>/</span>
+            <a href="academy.html" class="hover:text-hartz-blue">Academy</a>
+            <span>/</span>
+            <span class="text-hartz-black">Workshops</span>
+        </nav>
+        <div class="relative">
+            <div class="hero-orb -top-64 -left-64 opacity-50"></div>
+            <h1 class="text-5xl md:text-[5.5rem] font-extrabold tracking-tight-custom leading-[1] text-hartz-black max-w-4xl mb-8">
+                Practical AI <span class="text-hartz-blue">Workshops.</span>
+            </h1>
+            <p class="text-hartz-muted text-lg md:text-xl max-w-2xl font-medium leading-relaxed">
+                Small-group sessions with clear outcomes, real examples, and measurable progress. Built for non-technical teams who need results today.
+            </p>
+        </div>
+    </header>
+
+    <!-- Workshop Grid -->
+    <section class="pb-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- ChatGPT for Teams -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between mb-6">
+                        <span class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded uppercase tracking-widest">4 Weeks • Teams</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">ChatGPT For Teams</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">A structured programme for whole teams. One hour a week over four weeks. We bring AI into your real daily workflows.</p>
+                </div>
+                <div class="pt-6 border-t border-black/5">
+                    <a href="chatgpt-for-teams.html" class="inline-block w-full text-center py-4 bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all">View Programme</a>
+                </div>
+            </div>
+
+            <!-- Prompt Engineering -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between">
+                <div>
+                    <div class="flex justify-between mb-6">
+                        <span class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded uppercase tracking-widest">Half Day • Beginner</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">Prompt Engineering Essentials</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">Learn to communicate effectively with AI. Master the art of crafting prompts that get you results every time.</p>
+                </div>
+                <div class="pt-6 border-t border-black/5">
+                    <button class="w-full py-4 bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all">Enquire Now • £450</button>
+                </div>
+            </div>
+
+            <!-- Charity Playbook -->
+            <div class="bento-card p-10 rounded-[40px] flex flex-col justify-between border-hartz-blue border-2">
+                <div>
+                    <div class="flex justify-between mb-6">
+                        <span class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded uppercase tracking-widest">Specialist • Half Day</span>
+                    </div>
+                    <h3 class="text-2xl font-extrabold mb-4">AI For Marketing: Charity Playbook</h3>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8">Tailored strategies for nonprofits. Boost your outreach, fundraising, and engagement using AI-powered marketing.</p>
+                </div>
+                <div class="pt-6 border-t border-black/5">
+                    <a href="charity-playbook.html" class="inline-block w-full text-center py-4 bg-hartz-blue text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-black transition-all">Explore Playbook</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 md:px-12 bg-hartz-lightGray border-t border-black/5">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16">
+            <div class="max-w-xs">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="text-hartz-black tracking-[0.2em] font-bold text-sm">HARTZ</span>
+                    <div class="w-6 h-6 rounded-full border border-hartz-blue flex items-center justify-center text-[8px] text-hartz-blue font-bold">AI</div>
+                </div>
+                <p class="text-hartz-muted text-xs leading-relaxed">Empowering UK SMEs with Practical AI Capability.</p>
+            </div>
+            <div class="flex gap-20 text-[10px] font-bold uppercase tracking-widest">
+                <div class="flex flex-col gap-4">
+                    <span class="text-hartz-black">Academy</span>
+                    <a href="academy.html" class="text-hartz-muted hover:text-hartz-black">Overview</a>
+                    <a href="#" class="text-hartz-muted hover:text-hartz-black">Workshops</a>
+                </div>
+                <div class="flex flex-col gap-4">
+                    <span class="text-hartz-black">Support</span>
+                    <a href="#" class="text-hartz-muted hover:text-hartz-black">hello@hartzai.com</a>
+                    <a href="#" class="text-hartz-muted hover:text-hartz-black">London, UK</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

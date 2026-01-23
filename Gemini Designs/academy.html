@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartz AI Academy | Practical Training for UK SMEs</title>
+    <!-- Modern Tech Font: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hartz: {
+                            white: '#ffffff',
+                            lightGray: '#fcfcfc',
+                            black: '#0a0a0a',
+                            blue: '#4A90E2',
+                            muted: '#666666',
+                            border: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #0a0a0a;
+            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .glow-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .mega-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100vw;
+            background: white;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            z-index: 50;
+            padding: 40px 10%;
+        }
+
+        .nav-item:hover .mega-menu {
+            display: block;
+        }
+
+        .bento-card {
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: #4A90E2;
+            transform: translateY(-4px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.04);
+        }
+
+        .hero-orb {
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.07) 0%, transparent 70%);
+            filter: blur(100px);
+            position: absolute;
+            z-index: -1;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -50px) scale(1.05); }
+        }
+
+        .tracking-tight-custom { letter-spacing: -0.05em; }
+
+        .faq-item input:checked ~ .faq-content {
+            max-height: 200px;
+            margin-top: 20px;
+            opacity: 1;
+        }
+
+        .path-active {
+            border-left: 4px solid #4A90E2;
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <div class="glow-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-[100] h-16 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-hartz-black tracking-[0.2em] font-bold text-base">HARTZ</span>
+            <div class="w-7 h-7 rounded-full border border-hartz-blue flex items-center justify-center text-[9px] text-hartz-blue font-bold">AI</div>
+        </div>
+        
+        <ul class="hidden lg:flex items-center gap-10 text-[10px] uppercase tracking-[0.15em] text-hartz-muted font-bold h-full">
+            <li class="nav-item h-full flex items-center group cursor-default">
+                <span class="text-hartz-black py-6">Training</span>
+                <div class="mega-menu animate-in fade-in slide-in-from-top-2 duration-300">
+                    <div class="grid grid-cols-4 gap-12 max-w-7xl mx-auto text-left">
+                        <div>
+                            <h4 class="text-hartz-black mb-6 text-[11px] border-b pb-2">Hartz AI Academy</h4>
+                            <ul class="space-y-4 text-xs normal-case tracking-normal">
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Workshops Overview</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">ChatGPT For Teams</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">AI For Marketing</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Team Training Academy</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-hartz-black mb-6 text-[11px] border-b pb-2">Resources</h4>
+                            <ul class="space-y-4 text-xs normal-case tracking-normal">
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Prompt Library</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Learning Paths</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Guides & Templates</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item h-full flex items-center group cursor-default">
+                <span class="hover:text-hartz-black transition-colors py-6">Consultancy</span>
+                <div class="mega-menu">
+                    <div class="grid grid-cols-4 gap-12 max-w-7xl mx-auto text-left">
+                        <div>
+                            <h4 class="text-hartz-black mb-6 text-[11px] border-b pb-2">Services</h4>
+                            <ul class="space-y-4 text-xs normal-case tracking-normal">
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">AI Readiness Audit</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Fractional Chief AI Officer</a></li>
+                                <li><a href="#" class="hover:text-hartz-blue font-medium">Ongoing Advisory</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">Industries</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">Case Studies</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">About</a></li>
+        </ul>
+
+        <button class="px-6 py-2 rounded-full bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold hover:bg-hartz-blue transition-all shadow-lg">
+            Book Discovery Call
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-48 pb-32 px-6 md:px-12 text-center overflow-hidden">
+        <div class="hero-orb"></div>
+        <div class="max-w-5xl mx-auto">
+            <p class="text-hartz-blue uppercase tracking-[0.4em] text-[10px] mb-8 font-extrabold animate-pulse">
+                Hartz AI Academy • Practice-Led Learning
+            </p>
+            <h1 class="text-5xl md:text-[6.5rem] font-extrabold tracking-tight-custom leading-[0.9] mb-10 text-hartz-black">
+                Learn AI in <span class="text-hartz-blue italic">clear language.</span>
+            </h1>
+            <p class="text-hartz-muted text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed mb-12">
+                Build confidence, capability, and measurable results for your team. Our AI workshops use plain English and real business tasks. Your team learns through practical examples.
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <button class="px-10 py-5 bg-hartz-black text-white rounded-full font-bold uppercase tracking-widest text-[11px] hover:bg-hartz-blue transition-all shadow-2xl">Browse All Courses</button>
+                <button class="px-10 py-5 border border-black/10 rounded-full font-bold uppercase tracking-widest text-[11px] hover:border-hartz-blue transition-all">How It Works</button>
+            </div>
+            
+            <div class="mt-20 flex justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="text-center">
+                    <div class="text-3xl font-extrabold text-hartz-black">500+</div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest">Professionals Trained</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl font-extrabold text-hartz-black">95%</div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest">Satisfaction Rate</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Academy -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/5">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div>
+                <h4 class="text-xl font-extrabold mb-4">Clear Language</h4>
+                <p class="text-sm text-hartz-muted leading-relaxed">We explain each concept in simple terms. No technical words unless we have defined them clearly for your context.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-extrabold mb-4">Hands-On Learning</h4>
+                <p class="text-sm text-hartz-muted leading-relaxed">You learn by doing. Each session includes tasks, examples, and tools you can use straight away in your role.</p>
+            </div>
+            <div>
+                <h4 class="text-xl font-extrabold mb-4">For All Skill Levels</h4>
+                <p class="text-sm text-hartz-muted leading-relaxed">We support beginners and teams with basic experience. Each path raises confidence step by step through applied practice.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Learning Paths -->
+    <section id="paths" class="py-32 bg-hartz-lightGray/50 border-y border-black/5">
+        <div class="max-w-7xl mx-auto px-6 md:px-12">
+            <div class="text-center mb-24">
+                <h2 class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold">Learning Paths</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-hartz-black leading-tight">Choose the path that fits your team.</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Foundation -->
+                <div class="bento-card bg-white p-12 rounded-[48px] flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span class="text-[9px] font-bold uppercase tracking-widest bg-hartz-blue/10 text-hartz-blue px-3 py-1 rounded-full">Foundation</span>
+                            <span class="text-[9px] font-bold text-hartz-muted uppercase">4 Weeks</span>
+                        </div>
+                        <h4 class="text-2xl font-extrabold mb-4">AI Fundamentals</h4>
+                        <p class="text-sm text-hartz-muted mb-8">For teams new to AI. Build foundational knowledge and confidence to explore opportunities safely.</p>
+                        <ul class="space-y-4 text-xs font-medium text-hartz-black mb-10">
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> What AI is (Plain English)</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> Workflow efficiency wins</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> Common tools & simple tasks</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-black/5">
+                        <div class="text-xl font-extrabold mb-4">£1,200 <span class="text-xs text-hartz-muted font-normal">per person</span></div>
+                        <button class="w-full py-4 bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all">Enquire Now</button>
+                    </div>
+                </div>
+
+                <!-- Practitioner -->
+                <div class="bento-card bg-white p-12 rounded-[48px] border-hartz-blue border-2 relative flex flex-col justify-between">
+                    <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-hartz-blue text-white text-[9px] font-bold uppercase px-4 py-1 rounded-full">Best Value</div>
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span class="text-[9px] font-bold uppercase tracking-widest bg-hartz-blue/10 text-hartz-blue px-3 py-1 rounded-full">Practitioner</span>
+                            <span class="text-[9px] font-bold text-hartz-muted uppercase">8 Weeks</span>
+                        </div>
+                        <h4 class="text-2xl font-extrabold mb-4">AI in Practice</h4>
+                        <p class="text-sm text-hartz-muted mb-8">Ready to implement? Learn to evaluate and deploy AI tools that deliver real business value.</p>
+                        <ul class="space-y-4 text-xs font-medium text-hartz-black mb-10">
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-hartz-blue rounded-full"></div> Tool assessment frameworks</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-hartz-blue rounded-full"></div> Complex prompt engineering</li>
+                            <li class="flex items-center gap-2"><div class="w-1.5 h-1.5 bg-hartz-blue rounded-full"></div> Workflow automation build</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-black/5">
+                        <div class="text-xl font-extrabold mb-4">£2,400 <span class="text-xs text-hartz-muted font-normal">per person</span></div>
+                        <button class="w-full py-4 bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all">Enquire Now</button>
+                    </div>
+                </div>
+
+                <!-- Leader -->
+                <div class="bento-card bg-white p-12 rounded-[48px] flex flex-col justify-between">
+                    <div>
+                        <div class="flex justify-between items-center mb-8">
+                            <span class="text-[9px] font-bold uppercase tracking-widest bg-hartz-blue/10 text-hartz-blue px-3 py-1 rounded-full">Leader</span>
+                            <span class="text-[9px] font-bold text-hartz-muted uppercase">12 Weeks</span>
+                        </div>
+                        <h4 class="text-2xl font-extrabold mb-4">AI Leadership</h4>
+                        <p class="text-sm text-hartz-muted mb-8">For executives driving strategy. Build capability to lead transformation with confidence and clarity.</p>
+                        <ul class="space-y-4 text-xs font-medium text-hartz-black mb-10">
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> Strategic roadmap design</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> Risk, ethics & policy</li>
+                            <li class="flex items-center gap-2"><div class="w-1 h-1 bg-hartz-blue rounded-full"></div> Managing AI change</li>
+                        </ul>
+                    </div>
+                    <div class="pt-8 border-t border-black/5">
+                        <div class="text-xl font-extrabold mb-4">£4,200 <span class="text-xs text-hartz-muted font-normal">per person</span></div>
+                        <button class="w-full py-4 bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold rounded-full hover:bg-hartz-blue transition-all">Enquire Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Workshops -->
+    <section id="workshops" class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-end justify-between mb-24 gap-8">
+            <div class="max-w-xl">
+                <h2 class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold">Standalone Workshops</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold tracking-tight text-hartz-black leading-tight">Applied AI for immediate results.</h3>
+            </div>
+            <a href="#" class="text-[10px] font-bold uppercase tracking-widest border-b border-black pb-1 hover:text-hartz-blue hover:border-hartz-blue transition-all">View All Upcoming Dates</a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Workshop 1 -->
+            <div class="bento-card p-8 rounded-[32px] flex flex-col justify-between">
+                <div>
+                    <div class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest">Half Day • Beginner</div>
+                    <h4 class="text-lg font-bold mb-3">Prompt Engineering Essentials</h4>
+                    <p class="text-xs text-hartz-muted mb-6 leading-relaxed">Master the art of crafting prompts that get results every time.</p>
+                </div>
+                <div>
+                    <div class="text-sm font-extrabold text-hartz-black mb-4">£450</div>
+                    <button class="w-full py-3 border border-black/10 rounded-full text-[9px] font-bold uppercase tracking-widest hover:border-hartz-blue hover:text-hartz-blue transition-all">Book 12 Dec</button>
+                </div>
+            </div>
+            <!-- Workshop 2 -->
+            <div class="bento-card p-8 rounded-[32px] flex flex-col justify-between">
+                <div>
+                    <div class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest">Full Day • Intermediate</div>
+                    <h4 class="text-lg font-bold mb-3">AI Automation for Business</h4>
+                    <p class="text-xs text-hartz-muted mb-6 leading-relaxed">Automate repetitive tasks and workflows using no-code AI tools.</p>
+                </div>
+                <div>
+                    <div class="text-sm font-extrabold text-hartz-black mb-4">£850</div>
+                    <button class="w-full py-3 border border-black/10 rounded-full text-[9px] font-bold uppercase tracking-widest hover:border-hartz-blue hover:text-hartz-blue transition-all">Book 28 Nov</button>
+                </div>
+            </div>
+            <!-- Workshop 3 -->
+            <div class="bento-card p-8 rounded-[32px] flex flex-col justify-between">
+                <div>
+                    <div class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest">Half Day • Beginner</div>
+                    <h4 class="text-lg font-bold mb-3">AI-Powered Content Creation</h4>
+                    <p class="text-xs text-hartz-muted mb-6 leading-relaxed">Faster, high-quality content while maintaining brand voice.</p>
+                </div>
+                <div>
+                    <div class="text-sm font-extrabold text-hartz-black mb-4">£450</div>
+                    <button class="w-full py-3 border border-black/10 rounded-full text-[9px] font-bold uppercase tracking-widest hover:border-hartz-blue hover:text-hartz-blue transition-all">Book 15 Nov</button>
+                </div>
+            </div>
+            <!-- Workshop 4 -->
+            <div class="bento-card p-8 rounded-[32px] flex flex-col justify-between">
+                <div>
+                    <div class="text-[8px] font-extrabold text-hartz-blue bg-hartz-blue/5 border border-hartz-blue/10 px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest">Full Day • Advanced</div>
+                    <h4 class="text-lg font-bold mb-3">AI for Data Analysis</h4>
+                    <p class="text-xs text-hartz-muted mb-6 leading-relaxed">Turn data into actionable insights without a science degree.</p>
+                </div>
+                <div>
+                    <div class="text-sm font-extrabold text-hartz-black mb-4">£950</div>
+                    <button class="w-full py-3 border border-black/10 rounded-full text-[9px] font-bold uppercase tracking-widest hover:border-hartz-blue hover:text-hartz-blue transition-all">Book 05 Dec</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team & Individual Speed Options -->
+    <section class="py-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="bento-card p-12 rounded-[48px] bg-hartz-black text-white flex flex-col justify-between min-h-[400px]">
+                <div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-hartz-blue mb-6">For Teams</div>
+                    <h4 class="text-3xl font-extrabold mb-6">AI Skills for Teams</h4>
+                    <p class="text-sm opacity-60 leading-relaxed mb-8 max-w-md">One hour a week over four weeks. We build training around your team's real roles and tasks with minimal disruption.</p>
+                </div>
+                <div class="flex items-center justify-between pt-8 border-t border-white/10">
+                    <span class="text-sm font-bold">Custom Pricing</span>
+                    <button class="px-8 py-3 bg-hartz-blue text-white rounded-full text-[10px] font-bold uppercase tracking-widest">Enquire</button>
+                </div>
+            </div>
+            <div class="bento-card p-12 rounded-[48px] border-black/5 bg-hartz-lightGray flex flex-col justify-between min-h-[400px]">
+                <div>
+                    <div class="text-[9px] font-bold uppercase tracking-widest text-hartz-muted mb-6">For Individuals</div>
+                    <h4 class="text-3xl font-extrabold mb-6">AI Essentials, One Hour</h4>
+                    <p class="text-sm text-hartz-muted leading-relaxed mb-8 max-w-md">A fast, focused crash course for a clear starting point. Covers prompt writing, safe use, and quick wins you can apply today.</p>
+                </div>
+                <div class="flex items-center justify-between pt-8 border-t border-black/5">
+                    <span class="text-sm font-extrabold">£199</span>
+                    <button class="px-8 py-3 bg-hartz-black text-white rounded-full text-[10px] font-bold uppercase tracking-widest">Book Spot</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructors -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/5">
+        <h3 class="text-3xl font-extrabold text-center mb-24">Learn from experienced AI practitioners.</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto">
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                <div class="w-32 h-32 rounded-full bg-hartz-lightGray flex-shrink-0 border border-black/5"></div>
+                <div>
+                    <h4 class="text-xl font-extrabold mb-1">Craig Hartzel</h4>
+                    <div class="text-[9px] font-bold text-hartz-blue uppercase tracking-widest mb-4">Principal AI Trainer</div>
+                    <p class="text-xs text-hartz-muted leading-relaxed">Deeply experienced in helping UK SMEs adopt AI confidently. Known for plain-English teaching and practical productivity gains.</p>
+                </div>
+            </div>
+            <div class="flex flex-col md:flex-row gap-8 items-center md:items-start text-center md:text-left">
+                <div class="w-32 h-32 rounded-full bg-hartz-lightGray flex-shrink-0 border border-black/5"></div>
+                <div>
+                    <h4 class="text-xl font-extrabold mb-1">Rivka Abecasis</h4>
+                    <div class="text-[9px] font-bold text-hartz-blue uppercase tracking-widest mb-4">AI Compliance Trainer</div>
+                    <p class="text-xs text-hartz-muted leading-relaxed">Specialist in AI governance and safe adoption. Passionate about making compliance accessible for non-technical teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-32 px-6 md:px-12 max-w-4xl mx-auto">
+        <h3 class="text-3xl font-extrabold text-center mb-16">Academy FAQs</h3>
+        <div class="space-y-4">
+            <div class="faq-item border-b border-black/5 pb-4">
+                <label class="flex justify-between items-center cursor-pointer font-bold text-sm py-4">
+                    <span>How fast will we see results?</span>
+                    <input type="checkbox" class="hidden">
+                    <span class="text-hartz-blue">+</span>
+                </label>
+                <div class="faq-content max-height-0 overflow-hidden text-xs text-hartz-muted leading-relaxed transition-all">
+                    Many teams apply a first workflow within a week and see measurable impact in 3–6 months across the organisation.
+                </div>
+            </div>
+            <div class="faq-item border-b border-black/5 pb-4">
+                <label class="flex justify-between items-center cursor-pointer font-bold text-sm py-4">
+                    <span>Can you work with our existing tools?</span>
+                    <input type="checkbox" class="hidden">
+                    <span class="text-hartz-blue">+</span>
+                </label>
+                <div class="faq-content max-height-0 overflow-hidden text-xs text-hartz-muted leading-relaxed transition-all">
+                    Yes. We are platform-agnostic and work with ChatGPT, Claude, Microsoft Copilot, and any specific internal stack you have.
+                </div>
+            </div>
+            <div class="faq-item border-b border-black/5 pb-4">
+                <label class="flex justify-between items-center cursor-pointer font-bold text-sm py-4">
+                    <span>Is the discovery call a sales pitch?</span>
+                    <input type="checkbox" class="hidden">
+                    <span class="text-hartz-blue">+</span>
+                </label>
+                <div class="faq-content max-height-0 overflow-hidden text-xs text-hartz-muted leading-relaxed transition-all">
+                    No. It is a 15-minute clarity call to understand your needs and recommend the right learning path for your specific team.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-24 px-6 md:px-12 bg-white border-t border-black/5">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-16">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-3 mb-8">
+                    <span class="text-hartz-black tracking-[0.2em] font-bold text-sm">HARTZ</span>
+                    <div class="w-6 h-6 rounded-full border border-hartz-blue flex items-center justify-center text-[8px] text-hartz-blue font-bold">AI</div>
+                </div>
+                <p class="text-hartz-muted text-xs leading-relaxed mb-8">Empowering UK SMEs with Practical AI Capability.</p>
+                <div class="text-[10px] font-bold text-hartz-black space-y-2 uppercase tracking-widest">
+                    <p>academy@hartzai.com</p>
+                    <p>Wohl Enterprise Building, London N3 2BS</p>
+                </div>
+            </div>
+            
+            <div>
+                <h5 class="text-hartz-black text-[10px] uppercase tracking-[0.2em] mb-8 font-extrabold">Training</h5>
+                <ul class="text-hartz-muted text-xs space-y-4 font-medium">
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Academy Overview</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Prompt Library</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Workshops</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-hartz-black text-[10px] uppercase tracking-[0.2em] mb-8 font-extrabold">Consultancy</h5>
+                <ul class="text-hartz-muted text-xs space-y-4 font-medium">
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">AI Readiness Audit</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Fractional CAIO</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Governance</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h5 class="text-hartz-black text-[10px] uppercase tracking-[0.2em] mb-8 font-extrabold">Company</h5>
+                <ul class="text-hartz-muted text-xs space-y-4 font-medium">
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">LinkedIn</a></li>
+                    <li><a href="#" class="hover:text-hartz-black transition-colors">Terms & Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-24 pt-10 border-t border-black/5 flex justify-between text-[9px] text-hartz-muted uppercase tracking-[0.3em] font-extrabold">
+            <span>© 2026 Hartz AI • London, UK</span>
+            <span>Academy • Clarity • Capability</span>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scroll = window.pageYOffset;
+            const orb = document.querySelector('.hero-orb');
+            if(orb) orb.style.transform = `translateY(${scroll * 0.1}px)`;
+        });
+    </script>
+</body>
+</html>

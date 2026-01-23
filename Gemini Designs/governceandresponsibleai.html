@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Governance & Responsible AI | Hartz AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hartz: {
+                            white: '#ffffff',
+                            lightGray: '#fcfcfc',
+                            black: '#0a0a0a',
+                            blue: '#4A90E2',
+                            muted: '#666666',
+                            border: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glow-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.04) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 40%); pointer-events: none; z-index: -1; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .bento-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .tracking-tight-custom { letter-spacing: -0.05em; }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="glow-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="glass-nav fixed top-0 w-full z-[100] h-16 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-hartz-black tracking-[0.2em] font-bold text-base">HARTZ</span>
+            <div class="w-7 h-7 rounded-full border border-hartz-blue flex items-center justify-center text-[9px] text-hartz-blue font-bold">AI</div>
+        </div>
+        <button class="px-6 py-2 rounded-full bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold">Enquire Safety Audit</button>
+    </nav>
+
+    <!-- Header & Breadcrumbs -->
+    <header class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
+        <nav class="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold text-hartz-muted mb-12">
+            <a href="index.html" class="hover:text-hartz-blue">Home</a>
+            <span>/</span>
+            <a href="ai-consultancy.html" class="hover:text-hartz-blue">Consultancy</a>
+            <span>/</span>
+            <span class="text-hartz-black">Governance & Responsible AI</span>
+        </nav>
+        <div class="max-w-4xl">
+            <h1 class="text-5xl md:text-[5.5rem] font-extrabold tracking-tight-custom leading-[1] text-hartz-black mb-8">
+                Trust by <br><span class="text-hartz-blue">design.</span>
+            </h1>
+            <p class="text-hartz-muted text-lg md:text-xl font-medium leading-relaxed">
+                Adopting AI safely is as important as adopting it quickly. We build the frameworks, policies, and ethical guardrails your SME needs to protect your data, your people, and your reputation.
+            </p>
+        </div>
+    </header>
+
+    <!-- Governance Pillars -->
+    <section class="pb-32 px-6 md:px-12 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="bento-card p-12 rounded-[40px]">
+                <h3 class="text-2xl font-bold mb-6">AI Acceptable Use Policy</h3>
+                <p class="text-sm text-hartz-muted leading-relaxed">Practical, clear policies that tell your team exactly what tools they can use, with what data, and for what tasks.</p>
+            </div>
+            <div class="bento-card p-12 rounded-[40px]">
+                <h3 class="text-2xl font-bold mb-6">Data Protection & Ethics</h3>
+                <p class="text-sm text-hartz-muted leading-relaxed">Navigating GDPR in the age of LLMs. We ensure your AI implementation respects privacy law and ethical boundaries.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

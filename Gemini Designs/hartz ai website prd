@@ -1,0 +1,91 @@
+Product Requirements Document: Hartz AI Website
+
+1. Project Overview
+
+Hartz AI is a London-based AI consultancy and training lab focused on empowering UK SMEs. The goal of this project is to build a high-conversion, atmospheric landing page that mirrors the "Digital Lab" aesthetic of Google DeepMind.
+
+2. Core Aesthetic & Brand Guidelines
+
+Refer to the "Digital Lab" Design Brief for full visual specs.
+
+Colors: #FFFFFF (Primary Background), #4A90E2 (Hartz Blue Accent), #0A0A0A (Primary Text).
+
+Typography: Inter (Global Font). Headlines must be ExtraBold with tight tracking (-0.05em).
+
+Vibe: Expansive whitespace, "bioluminescent" blue glows, technical hairlines (0.5px), and a subtle grain texture.
+
+3. Technical Requirements
+
+Framework: Single-file architecture (HTML5, Tailwind CSS, Vanilla JavaScript).
+
+Responsiveness: Fully fluid layout (Mobile, Tablet, Desktop). No fixed pixel widths.
+
+Interactivity: - Smooth scroll behavior.
+
+CSS/JS animations for "hero orbs" and bento card hovers.
+
+Glassmorphism effects for navigation.
+
+4. Functional Requirements & Page Structure
+
+4.1. Navigation (Mega-Menu)
+
+Component: Fixed "Glass" navbar with 20px+ backdrop-blur.
+
+Structure:
+
+Logo: "HARTZ" (Inter Bold) + Blue Circle "AI".
+
+Menu Items: Training (Mega-menu with Academy/Workshops/Resources), Consultancy (Mega-menu with Audit/Fractional CAIO/Advisory), Case Studies, About.
+
+CTA: "Book Discovery Call" button (Primary Black).
+
+4.2. Hero Section (The Hook)
+
+Visual: Background "hero orb" with slow floating animation.
+
+Copy: - Primary Headline: "Solving intelligence to advance humanity."
+
+Sub-headline: "Practical AI for a smarter workforce."
+
+Stats: Integrated counter/visuals for: 500+ Trained, 90% Confidence Increase, 40% Time Saved.
+
+4.3. Phased Roadmap (Process)
+
+Layout: 4-column grid (Audit -> Roadmap -> Delivery -> Independence).
+
+Interactive: Hover states that highlight the current phase’s progress bar.
+
+4.4. Service Bento Grid
+
+Cards:
+
+Hartz AI Academy (Main Feature - 8/12 width).
+
+Fractional CAIO (4/12 width).
+
+AI Readiness Audit (4/12 width).
+
+Bespoke AI Solutions (8/12 width).
+
+Style: 32px corner radius, thin borders, abstract SVG line-art visuals.
+
+4.5. Trust & Social Proof
+
+Industry Tags: Clean, grayscale tags (UK Sport, Charities, Education, etc.).
+
+Testimonials: Large-format quotes with circular headshots and professional titles.
+
+4.6. FAQ & Final CTA
+
+FAQ: Standard accordion with "Plus/Minus" toggles.
+
+Final CTA: A high-impact, dark-mode card ("A gentle first step into AI") with a centralized button.
+
+5. Implementation Notes for AI
+
+Single File: All HTML, CSS (via Tailwind CDN), and JS must reside in index.html.
+
+Iconography: Use Lucide icons or Inline SVGs. No external image dependencies.
+
+Accessibility: High contrast ratios for text and ARIA labels for interactive elements.

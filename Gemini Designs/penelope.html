@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penelope by Hartz AI | Customer Persona Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hartz-white: #FFFFFF;
+            --hartz-black: #0A0A0A;
+            --hartz-blue: #4A90E2;
+            --hartz-muted: #666666;
+            --hartz-border: rgba(0,0,0,0.08);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--hartz-white);
+            color: var(--hartz-black);
+            overflow-x: hidden;
+        }
+
+        /*  3% opacity noise overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /*  Bioluminescent Glow */
+        .glow {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--hartz-blue) 0%, transparent 70%);
+            opacity: 0.04;
+            filter: blur(60px);
+            z-index: -1;
+        }
+
+        /* [cite: 14, 15] Typography */
+        h1 { font-weight: 900; letter-spacing: -0.05em; line-height: 1.0; }
+        h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+        p { line-height: 1.6; color: var(--hartz-muted); font-weight: 500; }
+
+        /* [cite: 17] Meta Labels */
+        .meta-label {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            font-size: 0.65rem;
+            color: var(--hartz-muted);
+        }
+
+        /* [cite: 18, 19] Bento Cards */
+        .bento-card {
+            background: #FFFFFF;
+            border-radius: 36px;
+            border: 1px solid var(--hartz-border);
+            transition: border-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bento-card:hover {
+            border-color: var(--hartz-blue);
+        }
+
+        /* [cite: 20] Technical Hairlines */
+        .hairline {
+            height: 1px;
+            background-color: var(--hartz-border);
+            width: 100%;
+        }
+
+        .cta-button {
+            background-color: var(--hartz-blue);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            transition: transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .input-field {
+            border: 1px solid var(--hartz-border);
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            width: 100%;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: var(--hartz-blue);
+        }
+    </style>
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    
+    <nav class="flex justify-between items-center px-12 py-8 max-w-7xl mx-auto">
+        <div class="flex items-center gap-2">
+            <span class="font-black text-xl">HARTZ</span>
+            <div class="border-2 border-[#4A90E2] rounded-full w-8 h-8 flex items-center justify-center text-xs font-bold">AI</div>
+        </div>
+        <div class="hidden md:flex gap-12 text-sm font-bold">
+            <a href="#">Product</a>
+            <a href="#">Use Cases</a>
+            <a href="#">Pricing</a>
+        </div>
+        <a href="#" class="font-bold text-sm">Login</a>
+    </nav>
+
+    <section class="relative px-12 py-20 max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="glow" style="top: -100px; left: -100px;"></div>
+        
+        <div>
+            <h1 class="text-6xl mb-6">Know your customer better than they know themselves.</h1>
+            <p class="text-xl mb-8 max-w-lg">Stop guessing. Generate deep, data-driven customer personas in 60 seconds. Precision audience mapping for the modern SME. </p>
+            
+            <div class="flex flex-col gap-4 max-w-md">
+                <div class="grid grid-cols-2 gap-3">
+                    <input type="text" placeholder="Business Name" class="input-field">
+                    <input type="text" placeholder="Industry" class="input-field">
+                </div>
+                <button class="cta-button">CREATE MY FIRST PERSONA — FREE</button>
+            </div>
+        </div>
+
+        <div class="bento-card p-10 shadow-sm relative">
+            <div class="glow" style="bottom: -150px; right: -150px;"></div>
+            <div class="flex justify-between items-start mb-12">
+                <div>
+                    <span class="meta-label">ID: 0042-S</span>
+                    <h3 class="text-3xl mt-2 uppercase">Sarah Chen</h3>
+                    <p class="text-sm font-bold text-[#4A90E2]">BRAND MANAGER</p>
+                </div>
+                <div class="w-20 h-20 rounded-full border-2 border-dashed border-[#4A90E2] flex items-center justify-center">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4A90E2" stroke-width="1.5">
+                        <path d="M12 2a5 5 0 1 0 5 5 5 5 0 0 0-5-5zM4 21a8 8 0 0 1 16 0" />
+                    </svg>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div>
+                    <span class="meta-label">Primary Quote</span>
+                    <p class="italic text-lg mt-2 text-black">"I need data that justifies our creative direction without the jargon."</p>
+                </div>
+                
+                <div class="hairline"></div>
+
+                <div class="grid grid-cols-2 gap-8">
+                    <div>
+                        <span class="meta-label">Depth</span>
+                        <div class="w-full bg-gray-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-[#4A90E2] h-full w-[94%]"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="meta-label">Accuracy</span>
+                        <div class="w-full bg-gray-100 h-1.5 mt-2 rounded-full overflow-hidden">
+                            <div class="bg-[#4A90E2] h-full w-[98%]"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="px-12 py-24 max-w-7xl mx-auto">
+        <span class="meta-label block text-center mb-4">Implementation</span>
+        <h2 class="text-4xl text-center mb-16">Practical Outcomes</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bento-card p-8">
+                <h3 class="text-xl mb-4">For Marketers</h3>
+                <p class="text-sm mb-6">Direct your messaging with precision. Eliminate generic campaigns and use deep psychographics to write copy that resonates. [cite: 5]</p>
+                <div class="hairline mb-4"></div>
+                <span class="meta-label">MARKET FIT: 94%</span>
+            </div>
+            
+            <div class="bento-card p-8">
+                <h3 class="text-xl mb-4">For Founders</h3>
+                <p class="text-sm mb-6">Validate your market fit early. Move from abstract ideas to concrete profiles based on high-end research patterns. [cite: 3]</p>
+                <div class="hairline mb-4"></div>
+                <span class="meta-label">GROWTH POTENTIAL</span>
+            </div>
+
+            <div class="bento-card p-8">
+                <h3 class="text-xl mb-4">For Sales Teams</h3>
+                <p class="text-sm mb-6">Shorten your sales cycle by identifying the exact pain points that trigger a purchase decision. [cite: 5]</p>
+                <div class="hairline mb-4"></div>
+                <span class="meta-label">BUYER INTENT</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="px-12 py-20 border-t border-[rgba(0,0,0,0.08)]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex items-center gap-2 grayscale opacity-50">
+                <span class="font-black">HARTZ</span>
+                <div class="border-2 border-black rounded-full w-6 h-6 flex items-center justify-center text-[8px] font-bold">AI</div>
+            </div>
+            <div class="flex gap-8 text-xs font-bold text-[#666666] uppercase tracking-widest">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">© Hartz AI</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

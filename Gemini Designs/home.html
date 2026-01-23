@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hartz AI | Practical Intelligence for UK SMEs</title>
+    <!-- SEO Metadata -->
+    <meta name="description" content="Hartz AI helps UK SMEs build confidence and capability with practical AI training, grounded consultancy, and fractional CAIO leadership.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        hartz: {
+                            white: '#ffffff',
+                            lightGray: '#fcfcfc',
+                            black: '#0a0a0a',
+                            blue: '#4A90E2',
+                            muted: '#666666',
+                            border: 'rgba(0, 0, 0, 0.08)'
+                        }
+                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { background-color: #ffffff; color: #0a0a0a; -webkit-font-smoothing: antialiased; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .glow-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at 80% 20%, rgba(74, 144, 226, 0.04) 0%, transparent 40%), radial-gradient(circle at 20% 80%, rgba(74, 144, 226, 0.02) 0%, transparent 40%); pointer-events: none; z-index: -1; }
+        .glass-nav { background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+        .bento-card { background: #ffffff; border: 1px solid rgba(0, 0, 0, 0.08); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); overflow: hidden; }
+        .bento-card:hover { border-color: #4A90E2; transform: translateY(-4px); box-shadow: 0 30px 60px rgba(0,0,0,0.04); }
+        .tracking-tight-custom { letter-spacing: -0.05em; }
+        .hero-orb { width: 800px; height: 800px; border-radius: 50%; background: radial-gradient(circle, rgba(74, 144, 226, 0.07) 0%, transparent 70%); filter: blur(100px); position: absolute; z-index: -1; animation: float 20s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(40px, -50px) scale(1.05); } }
+    </style>
+</head>
+<body class="bg-white">
+    <div class="glow-overlay"></div>
+
+    <nav class="glass-nav fixed top-0 w-full z-[100] h-16 px-6 md:px-12 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+            <span class="text-hartz-black tracking-[0.2em] font-bold text-base">HARTZ</span>
+            <div class="w-7 h-7 rounded-full border border-hartz-blue flex items-center justify-center text-[9px] text-hartz-blue font-bold">AI</div>
+        </div>
+        <ul class="hidden lg:flex items-center gap-10 text-[10px] uppercase tracking-[0.15em] text-hartz-muted font-bold">
+            <li><a href="ai-training.html" class="hover:text-hartz-black transition-colors">Training</a></li>
+            <li><a href="ai-consultancy.html" class="hover:text-hartz-black transition-colors">Consultancy</a></li>
+            <li><a href="#" class="hover:text-hartz-black transition-colors">About</a></li>
+        </ul>
+        <button class="px-6 py-2 rounded-full bg-hartz-black text-white text-[10px] uppercase tracking-widest font-bold hover:bg-hartz-blue transition-all">Book Call</button>
+    </nav>
+
+    <section class="relative min-h-screen flex flex-col items-center justify-center text-center px-6 pt-24 overflow-hidden">
+        <div class="hero-orb"></div>
+        <!-- Hero Background Image (Subtle) -->
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/11114695353908903887" 
+             alt="Abstract bioluminescent neural network representing Hartz AI core technology" 
+             class="absolute top-0 left-0 w-full h-full object-cover opacity-[0.03] pointer-events-none z-[-2]">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-hartz-blue/20 bg-hartz-blue/5 text-hartz-blue text-[9px] uppercase tracking-[0.2em] mb-8 font-bold">
+            <span class="w-1.5 h-1.5 rounded-full bg-hartz-blue animate-pulse"></span>
+            Building Confidence, Clarity & Capability with AI
+        </div>
+        <h1 class="text-5xl md:text-[7.5rem] font-extrabold tracking-tight-custom leading-[0.9] mb-10 text-hartz-black max-w-6xl">
+            Speak AI with <span class="text-hartz-blue">confidence.</span>
+        </h1>
+        <p class="text-hartz-muted text-lg md:text-xl max-w-3xl font-medium leading-relaxed mb-12">
+            Hartz AI helps UK SMEs turn noise into action through grounded training and fractional leadership.
+        </p>
+        <button class="px-10 py-5 bg-hartz-blue text-white rounded-full font-bold uppercase tracking-widest text-[11px] hover:scale-105 transition-transform shadow-2xl">Book Clarity Call</button>
+    </section>
+
+    <!-- Success Section with Experience Visual -->
+    <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto border-t border-black/5">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div class="relative rounded-[60px] overflow-hidden group">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/11347603560149165939" 
+                     alt="Modern minimalist office in London where Hartz AI delivers training" 
+                     class="w-full aspect-[4/5] object-cover grayscale transition-all duration-700 group-hover:grayscale-0">
+                <div class="absolute inset-0 bg-hartz-blue/10 mix-blend-multiply"></div>
+            </div>
+            <div>
+                <h2 class="text-hartz-blue uppercase tracking-[0.3em] text-[10px] mb-6 font-extrabold">Our Approach</h2>
+                <h3 class="text-4xl md:text-6xl font-extrabold tracking-tight text-hartz-black mb-8 leading-tight">AI demystified.</h3>
+                <p class="text-hartz-muted text-lg leading-relaxed mb-8">We combine training, advisory, and implementation to ensure your team can use AI in the tools they already know.</p>
+                <div class="flex items-center gap-4 p-8 border border-black/5 rounded-3xl">
+                     <div class="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                         <img src="http://googleusercontent.com/image_collection/image_retrieval/911813395856857307" alt="Craig Hartzel, Principal AI Trainer at Hartz AI">
+                     </div>
+                     <div>
+                         <p class="text-xs font-bold">Craig Hartzel</p>
+                         <p class="text-[10px] text-hartz-muted font-bold uppercase tracking-widest">Principal AI Trainer</p>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other sections follow same pattern -->
+
+    <footer class="py-24 px-6 border-t border-black/5 text-center text-[10px] text-hartz-muted uppercase font-bold tracking-widest">
+        <span>© 2026 Hartz AI • London, UK</span>
+    </footer>
+</body>
+</html>git
