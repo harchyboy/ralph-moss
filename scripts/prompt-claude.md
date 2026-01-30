@@ -37,8 +37,8 @@ You are Ralph Moss, an autonomous coding agent. Complete ONE task per iteration,
 ## Your Task
 
 1. **Read shared learnings first** (CRITICAL):
-   - Read `../../../../CLAUDE.md` - project context and conventions (if exists)
-   - Read `../../../../LEARNINGS.md` - consolidated learnings from ALL past sessions (if exists)
+   - Read `../../../../CLAUDE.md` - project context and conventions
+   - Read `../../../../LEARNINGS.md` - consolidated learnings from ALL past sessions (Claude Code + Ralph Moss)
 2. **Run preflight check** (if `./preflight.sh` exists): `./preflight.sh` - abort if it fails
 3. Read the PRD at `prd.json` (in the working directory provided above)
 4. **Read visual specs** (if `visualSpecs` exists in PRD - see "Visual Specifications" below)
@@ -273,7 +273,7 @@ If you discovered something that **all future Claude Code sessions AND Ralph Mos
 
 **When to update LEARNINGS.md:**
 - Database schema gotchas (wrong column names, ID types, etc.)
-- API patterns that prevent errors
+- API patterns that prevent 500 errors
 - UI component patterns that work well
 - Authentication/authorization patterns
 - Any "I wish I knew this earlier" moments
